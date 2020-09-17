@@ -17,7 +17,7 @@
 <!-- Nav Item - Grooming Order -->
 <li class="nav-item">
   <a class="nav-link" href="">
-    <i class="fas fa-fw fa-bath"></i>
+    <i class="fas fa-fw fa-shopping-cart"></i>
     <span>Order Management</span></a>
 </li>
 
@@ -25,7 +25,7 @@
 <!-- Nav Item - Pet Boarding Order -->
 <li class="nav-item">
   <a class="nav-link" href="">
-    <i class="fas fa-fw fa-building"></i>
+    <i class="fas fa-fw fa-box"></i>
     <span>Product Management</span></a>
 </li>
 
