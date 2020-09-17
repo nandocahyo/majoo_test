@@ -27,7 +27,8 @@ Route::get('/order', function () {
 //admin section
 Route::prefix('admin')->namespace('Admin')->middleware(['auth','admin'])->group(function() {
     Route::get('/','DashboardController@index')->name('dashboard');
-    Route::resource('grooming-package', 'GroomingPackageController');
+    Route::resource('product', 'ProductController');
+    Route::resource('order', 'OrderController');
     //realtime notification
-    Route::post('get-grooming','DashboardController@get_grooming')->name('get_grooming');
+    Route::post('get-order','DashboardController@get_order')->name('get_order');
 });
