@@ -20,9 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/detail/{id}', 'HomeController@product_detail')->name('product_detail');
 Route::get('/order', function () {
     return view('pages.checkout');
 });
+
 
 //admin section
 Route::prefix('admin')->namespace('Admin')->middleware(['auth','admin'])->group(function() {

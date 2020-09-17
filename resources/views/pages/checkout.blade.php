@@ -39,13 +39,60 @@
       <div class="row">
       <h4>Order Produk</h4>
       <div class="media">
-        <img class="mr-3" src="..." alt="Generic placeholder image">
+        <img class="mr-3" src="{{ URL::to('/') }}/product-image/{{ $detail->image }}" alt="Generic placeholder image">
         <div class="media-body">
-            <h5 class="mt-0">Media heading</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            <h5 class="mt-0">{{$detail->name_product}}</h5>
+            <p>{{$detail->description}}</p>
+            <h4 class="mt-0">Rp. {{ number_format($detail->price,0,",",".") }}</h4>
         </div>
         </div>
   </div>
+
+<br>
+  <h4>Form Order</h4><br>
+    <form>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Nama Customer</label>
+            <input type="text" name="name_customer" class="form-control" id="inputEmail4" placeholder="Nama Customer">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Alamat</label>
+            <input type="text" name="address" class="form-control" id="inputEmail4" placeholder="Alamat">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Nomor Telepon</label>
+            <input type="text" name="phone_number" class="form-control" id="inputEmail4" placeholder="Nomor Telepon">
+        </div>
+    </div>
+ 
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputState">Keterangan</label>
+            <input type="text" name="note" class="form-control" id="inputZip" placeholder="Tambah Keterangan">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputState">Qty</label>
+            <input type="number" name="qty" class="form-control" id="quantity" min="0">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputState">Total Harga</label>
+            <input type="text" name="total_price" class="form-control" id="inputZip" disabled>
+        </div>
+        <td id="price" data-price="1000">1000</td>
+        <p>Total Price: $<span id="total"></span></p>
+
+    </div>
+    <div class="form-group">
+    </div>
+    <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+    </form>
+<br>
+
 </div>
 
     <footer class="footer text-center">
@@ -61,5 +108,16 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"></script>
+    <script type="text/javascript">
+       $(document).ready(function () {
+            const p = $("#price").data('price');
+
+            $("#quantity").change(function () {
+                const q = $(this).find(':selected').data('quantity');
+                const total = p * q;
+                $("#total").text(total);
+            });
+        });
+    </script>
   </body>
 </html>
