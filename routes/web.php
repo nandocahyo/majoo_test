@@ -23,3 +23,11 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/order', function () {
     return view('pages.checkout');
 });
+
+//admin section
+Route::prefix('admin')->namespace('Admin')->middleware(['auth','admin'])->group(function() {
+    Route::get('/','DashboardController@index')->name('dashboard');
+    Route::resource('grooming-package', 'GroomingPackageController');
+    //realtime notification
+    Route::post('get-grooming','DashboardController@get_grooming')->name('get_grooming');
+});
