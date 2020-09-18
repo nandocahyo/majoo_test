@@ -74,7 +74,7 @@
 
   
  @include('includes.admin.script')
- @yield('script-addon')
+ @stack('script-addon')
 </body>
 @yield('stylemap')
 

@@ -17,4 +17,10 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function get_order()
+    {
+        $order_notif = Order::count();
+        return response()->json(['order_notif'=> $order_notif]);
+    }
+
 }

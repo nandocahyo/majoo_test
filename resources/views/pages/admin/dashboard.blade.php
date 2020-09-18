@@ -1,5 +1,16 @@
 @extends('layouts.admin')
 
+@push('navbar-addon')
+      <!-- Grooming Notification -->
+        <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link" href="{{ route('order.index') }}">
+                <i class="fas fa-shopping-cart fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter" id="or_notif"></span>
+              </a>
+            </li>
+@endpush
+
 @section('content')
  <!-- Begin Page Content -->
  <div class="container-fluid">
@@ -58,3 +69,21 @@
 </div>
 <!-- /.container-fluid -->
 @endsection
+
+@push('script-addon')
+<script type="text/javascript">
+$(document).ready(function(){
+  setInterval(function(){
+ $.ajax({
+    url:"{{route('get_order')}}",
+    type:"POST",
+    dataType:"json",
+    data:{_token: '{{csrf_token()}}'},
+    success:function(data){
+      $("#or_notif").html(data.order_notif);
+    }	 
+   });
+ },2000);
+})
+</script>
+@endpush

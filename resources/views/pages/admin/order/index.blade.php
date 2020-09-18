@@ -29,7 +29,7 @@
                    @forelse ($items as $item)
                    <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>{{ $item->name_customer }}</td>
+                        <td width="10%">{{ $item->name_customer }}</td>
                         <td>{{ $item->address }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone_number }}</td>
