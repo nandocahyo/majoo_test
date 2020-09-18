@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>Majoo Teknologi Indonesia</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/">
 
@@ -50,43 +50,48 @@
 
 <br>
   <h4>Form Order</h4><br>
-    <form>
+    <form class="needs-validation" novalidate>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputEmail4">Nama Customer</label>
-            <input type="text" name="name_customer" class="form-control" id="inputEmail4" placeholder="Nama Customer">
+            <label for="validationCustom01">Nama Customer</label>
+            <input type="text" name="name_customer" class="form-control" id="validationCustom01" placeholder="Nama Customer" required>
+            <div class="invalid-feedback">
+              Masukkan Nama
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label for="inputEmail4">Alamat</label>
-            <input type="text" name="address" class="form-control" id="inputEmail4" placeholder="Alamat">
+            <input type="text" name="address" class="form-control" id="inputEmail4" placeholder="Alamat" required>
+            <div class="invalid-feedback">
+              Masukkan Alamat
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
-            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+            <div class="invalid-feedback">
+              Masukkan Email
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label for="inputEmail4">Nomor Telepon</label>
-            <input type="text" name="phone_number" class="form-control" id="inputEmail4" placeholder="Nomor Telepon">
+            <input type="text" name="phone_number" class="form-control" id="inputEmail4" placeholder="Nomor Telepon" required>
+            <div class="invalid-feedback">
+              Masukkan Nomor Telepon
+            </div>
         </div>
     </div>
  
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
             <label for="inputState">Keterangan</label>
-            <input type="text" name="note" class="form-control" id="inputZip" placeholder="Tambah Keterangan">
+            <input type="text" name="note" class="form-control" id="inputZip" placeholder="Tambah Keterangan" required>
+            <div class="invalid-feedback">
+              Masukkan Keterangan
+            </div>
         </div>
-        <div class="form-group col-md-3">
-            <label for="inputState">Qty</label>
-            <input type="number" name="qty" class="form-control" id="quantity" min="0">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputState">Total Harga</label>
-            <input type="text" name="total_price" class="form-control" id="inputZip" disabled>
-        </div>
-        <td id="price" data-price="1000">1000</td>
-        <p>Total Price: $<span id="total"></span></p>
-
     </div>
+
     <div class="form-group">
     </div>
     <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
@@ -95,6 +100,7 @@
 
 </div>
 
+         
     <footer class="footer text-center">
       <div class="container">
         <span class="text-center">2020 @ PT Majoo Teknologi Indonesia</span>
@@ -108,16 +114,24 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"></script>
-    <script type="text/javascript">
-       $(document).ready(function () {
-            const p = $("#price").data('price');
-
-            $("#quantity").change(function () {
-                const q = $(this).find(':selected').data('quantity');
-                const total = p * q;
-                $("#total").text(total);
-            });
+    <script>
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
         });
+      }, false);
+    })();
     </script>
   </body>
 </html>
