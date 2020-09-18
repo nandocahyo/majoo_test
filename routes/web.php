@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/success', function () {
-    return view('pages.success');
-});
 
 Auth::routes();
 

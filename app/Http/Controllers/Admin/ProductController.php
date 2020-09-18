@@ -24,6 +24,13 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
+        $validatedData = $request->validate([
+            'name_product'  => 'required|unique:products|max:255',
+            'image'         => 'required',
+            'description'   => 'required',
+            'price'         => 'required',
+        ]);
         //icon upload
         $image = $request->file('image');
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
