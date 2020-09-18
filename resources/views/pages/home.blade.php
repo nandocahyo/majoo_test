@@ -44,6 +44,7 @@
             <img class="card-img-top" src="{{ URL::to('/') }}/product-image/{{ $p->image }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$p->name_product}}</h5>
+                <h5 class="mt-0">Rp. {{ number_format($p->price,0,",",".") }}</h5>
                 <p class="card-text">{{ Illuminate\Support\Str::limit($p->description, 100) }}</p>
                 <a href="{{ route('product_detail', $p->id) }}" class="btn btn-primary">Beli</a>
             </div>
