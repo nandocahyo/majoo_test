@@ -50,7 +50,8 @@
 
 <br>
   <h4>Form Order</h4><br>
-    <form class="needs-validation" novalidate>
+    <form action="{{ route('order', $detail->id) }}" method="POST" class="needs-validation" novalidate>
+    @csrf
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="validationCustom01">Nama Customer</label>

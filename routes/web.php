@@ -19,11 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//home route
 Route::get('/', 'HomeController@index')->name('home');
+//detail route
 Route::get('/detail/{id}', 'HomeController@product_detail')->name('product_detail');
-Route::get('/order', function () {
-    return view('pages.checkout');
-});
+//order route
+Route::post('order/{id}', 'OrderProductController@order')->name('order');
 
 
 //admin section
