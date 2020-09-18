@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('phone_number');
             $table->string('note');
             $table->integer('total_price');
+            $table->string('order_status');
             $table->timestamps();
         });
     }

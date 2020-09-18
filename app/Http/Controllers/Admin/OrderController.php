@@ -25,4 +25,13 @@ class OrderController extends Controller
         return redirect()->route('order.index')->with('success','Order deleted successfully');
     }
 
+    public function update($id)
+    {
+        $item = Order::findOrFail($id);
+        $item->order_status = 'SUCCESS';
+        $item->save();
+
+        return redirect()->route('order.index')->with('success','Order updated successfully');
+    }
+
 }

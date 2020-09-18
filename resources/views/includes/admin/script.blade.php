@@ -41,6 +41,26 @@
                 });
         }
     </script> 
+
+<script>
+        function confirmStatus(item_id) {
+            swal({
+                title: "Apa anda yakin ingin mengubah status order ?",
+                text: "Data yang diubah tidak bisa dikembalikan lagi !",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $('#'+item_id.closest('#status-pack').submit());
+                    } else {
+                        swal("Berhasil dibatalkan");
+                    }
+                });
+        }
+    </script> 
+
   <script src="{{ url('dropify/js/dropify.js') }}"></script>
   <script type="text/javascript">
         $(document).ready(function(){

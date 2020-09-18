@@ -17,11 +17,11 @@
                     <tr>
                         <th>ID</th>
                         <th>Nama Customer</th>
-                        <th>Alamat</th>
                         <th>Email</th>
                         <th>Nomor Telepon</th>
                         <th>Nama Produk</th>
                         <th>Harga</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,11 +30,15 @@
                    <tr>
                         <td>{{$loop->iteration}}</td>
                         <td width="10%">{{ $item->name_customer }}</td>
-                        <td>{{ $item->address }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone_number }}</td>
                         <td>{{ $item->product->name_product }}</td>
                         <td>Rp. {{ number_format($item->total_price,0,",",".") }}</td>
+                        @if($item->order_status =='PENDING') 
+                            <td><span class="badge badge-pill badge-warning">{{ $item->order_status }}</span></td>
+                        @elseif($item->order_status =='SUCCESS') 
+                            <td><span class="badge badge-pill badge-success">{{ $item->order_status }}</span></td>
+                        @endif 
                         <td>
                             <a href="" data-toggle="modal" data-target="#detailModal{{ $item->id }}" class="btn btn-info">
                                 <i class="fa fa-eye"></i>
@@ -67,7 +71,13 @@
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger" onclick="confirmDelete(this)" type="button"><i class="fa fa-trash"></i></button>
-                            </form>                          
+                            </form>
+
+                             <form action="{{ route('order.update', $item->id) }}" method="post" class="d-inline" id="status-pack">
+                                @csrf
+                                @method('put')
+                                <button class="btn btn-warning" onclick="confirmStatus(this)" type="button"><i class="fa fa-pen"></i></button>
+                            </form>                              
                         </td>
                     </tr>
                    @empty

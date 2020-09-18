@@ -19,7 +19,8 @@ class OrderProductController extends Controller
             'email'         => $request->email,
             'phone_number'  => $request->phone_number,
             'note'          => $request->note,
-            'total_price'   => $product->price
+            'total_price'   => $product->price,
+            'order_status'  => 'PENDING'
         ]);
 
         return view('pages.success');
