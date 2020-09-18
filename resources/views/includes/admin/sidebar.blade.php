@@ -15,6 +15,13 @@
 </div>
 
 <!-- Nav Item - Grooming Order -->
+<li class="nav-item {{ Request::path() === 'admin' ? 'active' : ''}}">
+  <a class="nav-link" href="{{ route('dashboard') }}">
+    <i class="fas fa-fw fa-chart-area"></i>
+    <span>Dashboard</span></a>
+</li>
+
+<!-- Nav Item - Grooming Order -->
 <li class="nav-item {{ Request::path() === 'admin/order' ? 'active' : ''}}">
   <a class="nav-link" href="{{ route('order.index') }}">
     <i class="fas fa-fw fa-shopping-cart"></i>
